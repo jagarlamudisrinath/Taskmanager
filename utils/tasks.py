@@ -20,7 +20,7 @@ def update_task(id, title, description, status):
     return "Task updated!"
 
 def create_table():
-    query = "CREATE TABLE task (id SERIAL PRIMARY KEY, title VARCHAR(100), description TEXT, status VARCHAR(20), created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)"
+    query = "CREATE TABLE IF NOT EXISTS task (id SERIAL PRIMARY KEY, title VARCHAR(100), description TEXT, status VARCHAR(20), created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)"
     psql_connection.exec_query(query)
     return "Table created!"
 
