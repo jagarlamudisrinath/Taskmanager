@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: TaskManager
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_db_data:/Users/srinathjaagrlamudi/PycharmProjects/TaskManager/db_data
+
+volumes:
+  my_db_data:
