@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template
 from utils import psql_connection, tasks
+from flask_cors import CORS, cross_origin
 import logging
 
 app = Flask(__name__)
+CORS(app)
 
 tasks.create_table()
 @app.route("/")
