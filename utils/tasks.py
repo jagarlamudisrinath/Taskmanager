@@ -2,6 +2,7 @@ from . import psql_connection
 
 def get_tasks():
     all_tasks = psql_connection.get_query("SELECT * FROM task;")
+    
     return all_tasks
 
 def add_task(title, description, status="new"):

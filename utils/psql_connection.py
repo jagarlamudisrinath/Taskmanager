@@ -18,13 +18,20 @@ def get_query(query):
     # Fetch and print the result
  
     result = cur.fetchall()
+    columns = [desc[0] for desc in cur.description]
+
+    # Convert each record to a dictionary
+    all_tasks = []
+    for record in result:
+        task = {columns[i]: record[i] for i in range(len(columns))}
+        all_tasks.append(task)
 
     # Close the cursor and connection
     cur.close()
     
     conn.close()
     # Return the result
-    return result
+    return all_tasks
 
 def exec_query(query):
     # Connect to the database

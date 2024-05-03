@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 import logging
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 tasks.create_table()
 @app.route("/")
